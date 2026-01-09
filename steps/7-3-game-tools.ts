@@ -1,4 +1,4 @@
-import { Autonomous, z, user, adk, actions, context } from '@botpress/runtime'
+import { Autonomous, z, user, adk, actions } from '@botpress/runtime'
 
 export default new Autonomous.Tool({
   name: 'end_game',
@@ -30,27 +30,6 @@ ${state.scene}
       `, z.object({
       summary: z.string()
     }))
-
-    const { imageUrl } = await actions.openai.generateImage({
-      prompt: `
-Generate an image for the end of a game. The user ${gameState} the game.
-NO TEXT ONLY AN IMAGE.
-
-The character: ${state.characterName}, a ${state.race} ${state.background}.
-
-Here's the summary:
-${value.summary}
-`
-    })
-
-    const chat = context.get('chat')
-
-    await chat.sendMessage({
-      type: 'text',
-      payload: {
-        text: `Game Ended !\n![](${imageUrl})`
-      }
-    })
 
     state.summary = value.summary
   },

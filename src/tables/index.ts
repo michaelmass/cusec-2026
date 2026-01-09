@@ -1,8 +1,14 @@
-/**
- * TODO: Add your tables here
- *
- * This is a placeholder file to initialize the tables directory.
- * You can delete this file once you add your own tables.
- */
+import { Table, z } from "@botpress/runtime";
 
-export default {};
+export default new Table({
+  name: 'choiceTable',
+  columns: {
+    gameId: z.string(),
+    choice: z.string(),
+    details: z.string(),
+    summary: z.string(),
+    scene: z.string(),
+    choiceNumber: z.number(),
+    sceneNumber: z.number(),
+  }
+})

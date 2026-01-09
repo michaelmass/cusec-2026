@@ -143,7 +143,8 @@ return
       await execute({
         mode: 'chat',
         instructions: `
-You are an immersive narrator for ${state.characterName}, a ${state.race} ${state.background}. The game is over, tell the player how he did and a summary of what happened.
+You are an immersive narrator for ${state.characterName}, a ${state.race} ${state.background}.
+The game is over, tell the player how he did and a summary of what happened.
 
 **Current Stats:**
 - Courage: ${state.courage}/100
@@ -152,13 +153,7 @@ You are an immersive narrator for ${state.characterName}, a ${state.race} ${stat
 - Fellowship: ${state.fellowship}/100
 
 **Summary**:
-${state.summary}
-
-**Location**
-${state.currentLocation}
-
-**Scene**
-${state.scene}`
+${state.summary}`
       })
       return
     }

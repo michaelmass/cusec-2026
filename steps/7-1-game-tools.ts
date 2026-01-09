@@ -1,5 +1,4 @@
 import { Autonomous, z, user, adk } from '@botpress/runtime'
-import choiceTable from '../tables'
 
 export default new Autonomous.Tool({
   name: 'make_choice',
@@ -60,20 +59,6 @@ ${details}
     user.state.health = res.health
     user.state.summary = res.newSummary
     user.state.choicesMadeCurrentScene = (user.state.choicesMadeCurrentScene ?? 0) + 1
-
-    await choiceTable.createRows({
-      rows: [
-        {
-          gameId: `${state.characterName}-${state.race}-${state.background}`,
-          choice,
-          details,
-          summary: state.summary ?? '',
-          scene: state.scene ?? '',
-          choiceNumber: user.state.choicesMadeCurrentScene ?? 0,
-          sceneNumber: user.state.sceneCompletedCount ?? 0,
-        }
-      ]
-    }).catch(() => { })
 
     return {
       state: user.state,
