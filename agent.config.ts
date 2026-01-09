@@ -1,7 +1,7 @@
 import { z, defineConfig } from "@botpress/runtime";
 
 export default defineConfig({
-  name: "boa",
+  name: "t",
   description: "An AI agent built with Botpress ADK",
 
   bot: {
@@ -13,8 +13,6 @@ export default defineConfig({
   },
 
   dependencies: {
-    integrations: {
-      chat: { version: "chat@0.7.4", enabled: true },
-    },
+    integrations: {},
   },
 });

@@ -1,14 +1,8 @@
-import { Conversation } from '@botpress/runtime'
-import world from '../knowledge'
+/**
+ * TODO: Add your conversations here
+ *
+ * This is a placeholder file to initialize the conversations directory.
+ * You can delete this file once you add your own conversations.
+ */
 
-export default new Conversation({
-  channel: 'chat.channel',
-  handler: async ({ execute }) => {
-    await execute({
-      instructions: 'anwser any question related to the world using the knowledge base',
-      objects: [],
-      mode: 'chat',
-      knowledge: [world]
-    })
-  }
-})
+export default {};
